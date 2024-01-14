@@ -1,37 +1,72 @@
 
 import { Control, Controller, useForm, useWatch } from "react-hook-form";
-// import { useState } from "react";
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormData, schema } from "./validator";
 import { StyledForm, StyledMain } from "./styled";
 import { DatePickerCalender } from "../DatePicker";
-export const FormCheckout = () => {
+import { Modal } from "../Modal";
+import { Total } from "../Total";
+import { Input } from "../Input/Index";
+import { today, getLocalTimeZone } from '@internationalized/date';
+import { EmailIcon } from "../Icons";
 
-  const { register, handleSubmit, setValue, control } = useForm<FormData>({
-    
+export const FormCheckout = () => {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+
+  const { register, handleSubmit, setValue, control, reset, formState: { errors } } = useForm<FormData>({
+    resolver: zodResolver(schema),
     defaultValues: {
       childPassenger: 0,
       adultPassenger: 0,
+      departureDate: today(getLocalTimeZone()),
+      returnDate: today(getLocalTimeZone()),
     }
   });
 
   const onSubmit = (data: FormData) => {
-    console.log('apareci', data);
+    setIsOpenModal(true);
+    console.log(data)
+    // reset();
+
+
   };
-
-  
-
 
   return (
     <StyledMain>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        <div className="container">
-          <DatePickerCalender label="Ida" {...register("departureDate")} />
-          <DatePickerCalender label="Volta" {...register("returnDate")} />
+        <div className="container-date">
+         <div>
+         <Controller
+            name="departureDate"
+            control={control}
+            render={({ field }) => {
+              return (
+                <DatePickerCalender value={field.value} onChange={field.onChange} label="Data de ida" />
+              )
+            }} />
+         </div>
+          <div>
+          <Controller
+            name="returnDate"
+            control={control}
+            render={({ field }) => {
+              return (
+                <DatePickerCalender value={field.value} onChange={field.onChange} label="Data de volta" />
+              )
+            }} />
+          </div>
         </div>
         <div className="container">
-          <input type="text" placeholder="Origem" {...register("origin")} />
-          <input type="text" placeholder="Destino" {...register("destination")} />
+          <div>
+            <Input type="text" label="Origem" placeholder="Origem" src="../src/assets/Children.svg" {...register("origin")} />
+            {errors.origin?.message}
+          </div>
+          <div>
+            <Input type="text" label="Destino" placeholder="Destino" src="../src/assets/Children.svg" {...register("destination")} />
+            {errors.destination?.message}
+          </div>
         </div>
         <h2>informações dos passageiros</h2>
         <div className="top-container">
@@ -48,7 +83,7 @@ export const FormCheckout = () => {
                     <p>Adultos</p>
                     <span>{field.value}</span>
                   </div>
-                  <h4 onClick={() => { field.onChange(field.value + 1) }}>+</h4>
+                  <button onClick={() => { field.onChange(field.value + 1) }}>+</button>
                 </div>
               )
             }}
@@ -66,46 +101,36 @@ export const FormCheckout = () => {
                     <p>Crianças</p>
                     <span>{field.value}</span>
                   </div>
-                  <h4 onClick={() => { field.onChange(field.value + 1) }}>+</h4>
+                  <button onClick={() => { field.onChange(field.value + 1) }}>+</button>
                 </div>
               )
             }} />
           <Total control={control} />
         </div>
-        <div className="container">
-          <input type="text" placeholder="Nome" {...register("name")} />
-          <input type="text" placeholder="Email " {...register("email")} />
+        <div>
+        {errors.adultPassenger?.message}
         </div>
-        <button type="submit">Enviar Checkout</button>
+        <div className="container">
+          <div>
+            <Input type="text" label="Nome completo" placeholder="Origem"  {...register("name")} />
+            {errors.name?.message}
+          </div>
+          <div>
+            <Input type="email" label="E-mail" placeholder="Destino" rightElement={<EmailIcon width={20} height={20} />}  {...register("email")} />
+            {errors.email?.message}
+          </div>
+        </div>
+        <button type="submit" className="button-checkout" >Enviar Checkout</button>
       </StyledForm>
+
+      {isOpenModal && <Modal isOpen={isOpenModal} onOpenChage={setIsOpenModal} delay={1000} >
+        <h1>Checkout efetuado com sucesso!</h1>
+        <img src="../src/assets/Success.svg" alt="" />
+      </Modal>}
+
     </StyledMain>
   );
 };
 
 
 
-function Total({ control }: { control: Control<FormData> }) {
-  const children = useWatch({
-    control,
-    name: "childPassenger",
-
-  })
-  const adults = useWatch({
-    control,
-    name: "adultPassenger",
-
-  })
-
-  const total = children + adults
-
-  return <div className="passengers-total">
-    <h2>Total</h2>
-    <h5>{total}</h5>
-    <div className="passengers-value">
-      <p>{adults}</p> <span>adultos</span>
-    </div>
-    <div className="passengers-value">
-      <p>{children}</p> <span>Crianças</span>
-    </div>
-  </div>
-}

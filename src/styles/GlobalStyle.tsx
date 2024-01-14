@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
+
 export default createGlobalStyle`
    :root {
     --grenn--color: #2BB6BC;
@@ -7,8 +8,11 @@ export default createGlobalStyle`
     --gray--color: #5E6278;
     --light--gray: #CFCFCF;
     --light--gray--600: #A7A2A2;
+    --light--gray--700: #E1DADA;
     --white--color: #FFFFFF;
+    --white--color--700: #F4F4F4;
 
+    
     font-size: 60%;   
   }
 
@@ -27,6 +31,7 @@ export default createGlobalStyle`
     padding: 0;
     outline:0;
     box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
   }
 
   body,html{
@@ -42,10 +47,6 @@ export default createGlobalStyle`
     overflow-x: hidden;
   }
 
-  body, input, button, textarea {
-    font-family: 'Inter';
-    font-size: 1.6rem;
-  }
 
   h1, h2, h3, h4, h5, h6, strong{
     font-weight: 500;

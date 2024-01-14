@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface imageProps {
+    src: string
+}
+
 
 export const StyledForm = styled.form`
 display: flex;
@@ -9,17 +13,49 @@ flex-direction: column;
 gap: 50px;
 width: 100%;
 max-width: 750px;
-margin-top: 50px;
+padding: 20px;
 
-.container{
+@media (max-width: 750px) {
+        gap: 12px;
+    }
+
+.container {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    gap: 85px ;
+
+    @media (max-width: 750px) {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    div{
+        width: 100%;
+    }
+
+
+}
+
+.container-date{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    @media (max-width: 750px) {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 .top-container{
     display: flex;
     gap: 20px;
+
+    @media (max-width: 515px) {
+        flex-direction: column;
+        gap: 10px;
+        
+    }
 }
 
 .top-passengers{
@@ -28,6 +64,7 @@ margin-top: 50px;
     justify-content: center;
     gap: 10px;
     width: 200px;
+
     
 
     h4{
@@ -43,7 +80,14 @@ margin-top: 50px;
         font-size: 27px;
         font-weight: 700;
 
+        &:hover{
+            background-color: var(--gren--weak--color);
+            color: var(--grenn--color);
+        }
+
     }
+
+    
 }
 
 
@@ -57,46 +101,58 @@ margin-top: 50px;
     height: 104px;
     gap: 2px;
     border-radius: 20px;
-}
 
-.passengers-total{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 104px;
-    height: 125px;
-
-    h2{
-        color: var(--grenn--color);
+    p{
+        color: var(--light--gray--600);
         font-weight: 700;
-        font-size: 1.7rem;
+
     }
-    h5{
+
+    
+
+    span{
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--grenn--color);
-        background-color: var(--gren--weak--color);
-        height: 35px;
-        width: 40px;
+        color: var(--grenn--color   );
         font-size: 3.2rem;
         font-weight: 700;
-        border-radius: 10px;
-    }
-
-    .passengers-value{
-        display: flex;
-        gap: 6px;
+        
     }
 }
 
+.button-checkout{
+    width: 195px;
+    height: 58px;
+    background-color: var(--gray--color);
+    border: none;
+    border-radius: 6px;
+    color: var(--white--color);
+    font-weight: 700;
+    font-size: 2rem;
+    margin-top: 20px;
+
+    &:hover{
+        background-color: var(--gren--weak--color);
+        color: var(--grenn--color);
+      
+    }
+
+}
+
 `
-
-
 
 export const StyledMain = styled.main`
 display: flex;
 align-items: center;
 justify-content: center;
+
+`
+
+export const StyledInput = styled.input<imageProps> `
+width: 317px;
+height: 54px;
+
+
 
 `
