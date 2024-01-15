@@ -4,7 +4,7 @@ import { ComponentProps, forwardRef } from "react"
 
 
 export const DatePickerCalender = forwardRef(({ fieldName, label, ...props }: any, ref: React.ForwardedRef<any>) => {
-    
+
 
     return (
         <StyledDatePicker {...props} ref={ref}  >
@@ -13,12 +13,11 @@ export const DatePickerCalender = forwardRef(({ fieldName, label, ...props }: an
                     <StyledLabel>{label}</StyledLabel>
                     <StyledGroup >
                         <StyledDateInput>
-                            {(segment) => <DateSegment  segment={segment} />}
+                            {(segment) => <DateSegment segment={segment} />}
                         </StyledDateInput>
                     </StyledGroup>
                 </div>
                 <StyledButtonCalender ><img src="src/assets/calendar.svg" alt="" /></StyledButtonCalender>
-
             </div>
             <Popover >
                 <Dialog>
@@ -32,9 +31,9 @@ export const DatePickerCalender = forwardRef(({ fieldName, label, ...props }: an
                         </StyledHeader>
                         <CalendarGrid >
                             <CalendarGridBody>
-                            {(date) => <StyledCalenderCell date={date} />}
+                                {(date) => <StyledCalenderCell date={date} />}
                             </CalendarGridBody>
-                           
+
                         </CalendarGrid>
                     </StyledCalendar>
                 </Dialog>

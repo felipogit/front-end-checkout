@@ -21,13 +21,13 @@ export const FormCheckout = () => {
       childPassenger: 0,
       adultPassenger: 0,
       departureDate: today(getLocalTimeZone()),
-      returnDate: today(getLocalTimeZone()),
+      
     }
   });
 
   const onSubmit = (data: FormData) => {
     setIsOpenModal(true);
-    console.log(data)
+    
     
   };
 

@@ -23,16 +23,13 @@ label{
     font-size: 1.2rem;
 }
 
-
 input{
     border: none;
     background-color: transparent;
     color: var(--light--gray--600);
     font-weight: 700;
-    font-size: 1.2rem;
-    
+    font-size: 1.2rem;  
 }
-
 
 div{
     display: flex;

@@ -4,7 +4,6 @@ interface imageProps {
     src: string
 }
 
-
 export const StyledForm = styled.form`
 display: flex;
 align-items: center;
@@ -33,8 +32,6 @@ padding: 20px;
     div{
         width: 100%;
     }
-
-
 }
 
 .container-date{
@@ -53,8 +50,7 @@ padding: 20px;
 
     @media (max-width: 515px) {
         flex-direction: column;
-        gap: 10px;
-        
+        gap: 10px;    
     }
 }
 
@@ -75,9 +71,6 @@ padding: 20px;
     gap: 10px;
     width: 200px;
     
-
-    
-
     button{
         display: flex;
         align-items: center;
@@ -96,12 +89,8 @@ padding: 20px;
             background-color: var(--light--gray);
             color: var(--light--gray--600);
         }
-
     }
-
-    
 }
-
 
 .passengers{
     display: flex;
@@ -114,15 +103,11 @@ padding: 20px;
     gap: 2px;
     border-radius: 20px;
     
-
     p{
         color: var(--light--gray--600);
         font-weight: 700;
         font-size: 1.5rem;
-
     }
-
-    
 
     span{
         display: flex;
@@ -158,14 +143,12 @@ padding: 20px;
 }
 
 `
-
 export const StyledMain = styled.main`
 display: flex;
 align-items: center;
 justify-content: center;
 
 `
-
 export const StyledInput = styled.input<imageProps> `
 width: 317px;
 height: 54px;

@@ -15,8 +15,6 @@ justify-content: center;
     height:150px ;
 }
 
-
-
 div {
     display: flex;
     flex-direction: column;
