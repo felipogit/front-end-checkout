@@ -18,7 +18,7 @@ Descrição curta do seu projeto.
 2. Navegue até o diretório do projeto:
 
     ```bash
-    cd seu-projeto
+    cd front-end-checkout
     ```
 
 3. Instale as dependências:
