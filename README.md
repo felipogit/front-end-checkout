@@ -1,7 +1,5 @@
 # Front-end-checkout
 
-Descrição curta do seu projeto.
-
 ## Pré-requisitos
 
 - [Node.js](https://nodejs.org/) (versão 14 ou superior)
