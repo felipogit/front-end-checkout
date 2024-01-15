@@ -1,6 +1,6 @@
-import { Button, Calendar, CalendarCell, CalendarGrid, CalendarGridBody, DateInput, DateSegment, Dialog, Group, Heading, Popover } from "react-aria-components"
+import { Button, CalendarGrid, CalendarGridBody, DateSegment, Dialog, Heading, Popover } from "react-aria-components"
 import { StyledButtonCalender, StyledCalendar, StyledCalenderCell, StyledDateInput, StyledDatePicker, StyledGroup, StyledHeader, StyledLabel } from "./styled"
-import { ComponentProps, forwardRef } from "react"
+import {  forwardRef } from "react"
 
 
 export const DatePickerCalender = forwardRef(({ fieldName, label, ...props }: any, ref: React.ForwardedRef<any>) => {

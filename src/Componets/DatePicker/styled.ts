@@ -1,4 +1,4 @@
-import {Button, Calendar, CalendarCell, CalendarGrid, DateInput, DatePicker, DateSegment, Dialog, Group, Heading, Label, Popover} from 'react-aria-components';
+import {Button, Calendar, CalendarCell, DateInput, DatePicker, Group, Label} from 'react-aria-components';
 import styled from 'styled-components';
 
 export const StyledDatePicker = styled(DatePicker)`

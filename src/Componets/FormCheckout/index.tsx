@@ -1,5 +1,5 @@
 
-import { Control, Controller, useForm, useWatch } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormData, schema } from "./validator";
@@ -15,7 +15,7 @@ import { FlightIcon } from "../Icons/FlightIcon";
 export const FormCheckout = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   
-  const { register, handleSubmit, setValue, control, reset, formState: { errors } } = useForm<FormData>({
+  const { register, handleSubmit, control, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {
       childPassenger: 0,
@@ -26,6 +26,9 @@ export const FormCheckout = () => {
   });
 
   const onSubmit = (data: FormData) => {
+    console.log(data); 
+    // Deixei esse console para que consiga vê os dados no console.
+    
     setIsOpenModal(true);
     
     
