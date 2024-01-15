@@ -10,11 +10,11 @@ import { Total } from "../Total";
 import { Input } from "../Input/Index";
 import { today, getLocalTimeZone } from '@internationalized/date';
 import { EmailIcon } from "../Icons";
+import { FlightIcon } from "../Icons/FlightIcon";
 
 export const FormCheckout = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
-
-
+  
   const { register, handleSubmit, setValue, control, reset, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -28,9 +28,7 @@ export const FormCheckout = () => {
   const onSubmit = (data: FormData) => {
     setIsOpenModal(true);
     console.log(data)
-    // reset();
-
-
+    
   };
 
   return (
@@ -60,15 +58,17 @@ export const FormCheckout = () => {
         </div>
         <div className="container">
           <div>
-            <Input type="text" label="Origem" placeholder="Origem" src="../src/assets/Children.svg" {...register("origin")} />
-            {errors.origin?.message}
+            <Input type="text" label="Origem" placeholder="Origem" rightElement={<FlightIcon width={28} height={28} />} {...register("origin")} />
+            <p className="error-message">{errors.origin?.message}</p>
           </div>
           <div>
-            <Input type="text" label="Destino" placeholder="Destino" src="../src/assets/Children.svg" {...register("destination")} />
-            {errors.destination?.message}
+            <Input type="text" label="Destino" placeholder="Destino" rightElement={<FlightIcon width={28} height={28} />} {...register("destination")} />
+            <p className="error-message" >{errors.destination?.message}</p>
           </div>
         </div>
-        <h2>informações dos passageiros</h2>
+        <div className="information-passengers">
+        <h2>INFORMAÇÕES DOS PASSAGEIROS</h2>
+        </div>
         <div className="top-container">
           <Controller
             name="adultPassenger"
@@ -76,14 +76,14 @@ export const FormCheckout = () => {
             render={({ field }) => {
               return (
                 <div className="top-passengers">
-                  <h4 onClick={() => { field.onChange(field.value > 0 ? field.value - 1 : 0) }}>-</h4>
+                  <button type="button" onClick={() => { field.onChange(field.value > 0 ? field.value - 1 : 0) }}>-</button>
                   <div className="passengers">
                     <img src="../src/assets/Children.svg" alt="" />
                     <img src="" alt="" />
                     <p>Adultos</p>
                     <span>{field.value}</span>
                   </div>
-                  <button onClick={() => { field.onChange(field.value + 1) }}>+</button>
+                  <button type="button" onClick={() => { field.onChange(field.value + 1) }}>+</button>
                 </div>
               )
             }}
@@ -94,30 +94,30 @@ export const FormCheckout = () => {
             render={({ field }) => {
               return (
                 <div className="top-passengers">
-                  <h4 onClick={() => { field.onChange(field.value > 0 ? field.value - 1 : 0) }}>-</h4>
+                  <button type="button" onClick={() => { field.onChange(field.value > 0 ? field.value - 1 : 0) }}>-</button>
                   <div className="passengers">
                     <img src="../src/assets/Children.svg" alt="" />
                     <img src="" alt="" />
                     <p>Crianças</p>
                     <span>{field.value}</span>
                   </div>
-                  <button onClick={() => { field.onChange(field.value + 1) }}>+</button>
+                  <button type="button" onClick={() => { field.onChange(field.value + 1) }}>+</button>
                 </div>
               )
             }} />
           <Total control={control} />
         </div>
         <div>
-        {errors.adultPassenger?.message}
+        <p className="error-message">{errors.adultPassenger?.message}</p>
         </div>
         <div className="container">
           <div>
             <Input type="text" label="Nome completo" placeholder="Origem"  {...register("name")} />
-            {errors.name?.message}
+            <p className="error-message">{errors.name?.message}</p>
           </div>
           <div>
-            <Input type="email" label="E-mail" placeholder="Destino" rightElement={<EmailIcon width={20} height={20} />}  {...register("email")} />
-            {errors.email?.message}
+            <Input type="email" label="E-mail" placeholder="Destino" rightElement={<EmailIcon width={28} height={28} />}  {...register("email")} />
+            <p className="error-message">{errors.email?.message}</p>
           </div>
         </div>
         <button type="submit" className="button-checkout" >Enviar Checkout</button>

@@ -6,7 +6,7 @@ export const Header = () => {
         <StyledHeader>
             <div>
                 <h1>Faça seu Checkout</h1>
-                <h3>É fácil, é tecnológico, isso é futurismo!</h3>
+                <h3>É FÁCIl É TECNOLÓGICO, ISSO É FUTURISMO!</h3>
             </div>
         </StyledHeader>
     )

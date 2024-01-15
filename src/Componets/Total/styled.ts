@@ -26,7 +26,7 @@ export const StyledTotal = styled.div`
         color: var(--grenn--color);
         background-color: var(--gren--weak--color);
         height: 35px;
-        width: 40px;
+        width: 56px;
         font-size: 3.2rem;
         font-weight: 700;
         border-radius: 10px;

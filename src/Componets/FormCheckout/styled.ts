@@ -16,7 +16,7 @@ max-width: 750px;
 padding: 20px;
 
 @media (max-width: 750px) {
-        gap: 12px;
+        gap: 16px;
     }
 
 .container {
@@ -58,17 +58,27 @@ padding: 20px;
     }
 }
 
+.information-passengers{
+    width: 100%;
+    color: var(--gray--color);
+
+    h2{
+        font-weight: 700;
+    font-size: 1.6rem;
+    }
+}
+
 .top-passengers{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     width: 200px;
+    
 
     
 
-    h4{
-        background-color: var(--light--gray);
+    button{
         display: flex;
         align-items: center;
         justify-content: center;
@@ -76,13 +86,15 @@ padding: 20px;
         border-radius: 50%;
         width: 25px;
         height: 25px;
-        color: var(--light--gray--600);
         font-size: 27px;
         font-weight: 700;
-
+        background-color: var(--gren--weak--color);
+        color: var(--grenn--color);
+        border: none;
+        
         &:hover{
-            background-color: var(--gren--weak--color);
-            color: var(--grenn--color);
+            background-color: var(--light--gray);
+            color: var(--light--gray--600);
         }
 
     }
@@ -96,15 +108,17 @@ padding: 20px;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    border: 2px solid var(--gray--color);
+    border: 2px solid var( --light--gray--700);
     width: 104px;
     height: 104px;
     gap: 2px;
     border-radius: 20px;
+    
 
     p{
         color: var(--light--gray--600);
         font-weight: 700;
+        font-size: 1.5rem;
 
     }
 
@@ -137,7 +151,10 @@ padding: 20px;
         color: var(--grenn--color);
       
     }
+}
 
+.error-message{
+    color: red;
 }
 
 `

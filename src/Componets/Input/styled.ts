@@ -20,6 +20,7 @@ align-items: center;
 
 label{
     font-weight: 700;
+    font-size: 1.2rem;
 }
 
 

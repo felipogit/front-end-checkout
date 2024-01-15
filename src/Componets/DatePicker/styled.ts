@@ -28,7 +28,7 @@ font-size: 1.2rem;
 
 export const StyledLabel = styled(Label)`
 font-weight: 700;
-
+font-size: 1.2rem;
 `
 
 export const StyledGroup = styled(Group)`
