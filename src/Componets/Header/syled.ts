@@ -1,11 +1,7 @@
 import styled from "styled-components";
-import teste from '../../assets/Vector.svg';
 
 export const StyledHeader = styled.header`
-background-image: url(${teste});
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+background-color: var(--grenn--color);
 width: 100%;
 height: 200px;
 display: flex;

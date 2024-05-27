@@ -11,6 +11,7 @@ import { Input } from "../Input/Index";
 import { today, getLocalTimeZone } from '@internationalized/date';
 import { EmailIcon } from "../Icons";
 import { FlightIcon } from "../Icons/FlightIcon";
+import sucess from "../../assets/Success.svg";
 
 export const FormCheckout = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -128,7 +129,7 @@ export const FormCheckout = () => {
 
       {isOpenModal && <Modal isOpen={isOpenModal} onOpenChage={setIsOpenModal} delay={1000} >
         <h1>Checkout efetuado com sucesso!</h1>
-        <img src="../src/assets/Success.svg" alt="" />
+        <img src={sucess} alt="" />
       </Modal>}
 
     </StyledMain>
