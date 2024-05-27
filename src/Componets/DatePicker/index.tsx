@@ -1,6 +1,7 @@
 import { Button, CalendarGrid, CalendarGridBody, DateSegment, Dialog, Heading, Popover } from "react-aria-components"
 import { StyledButtonCalender, StyledCalendar, StyledCalenderCell, StyledDateInput, StyledDatePicker, StyledGroup, StyledHeader, StyledLabel } from "./styled"
 import {  forwardRef } from "react"
+import calender from "../../assets/calendar.svg"
 
 
 export const DatePickerCalender = forwardRef(({ fieldName, label, ...props }: any, ref: React.ForwardedRef<any>) => {
@@ -17,7 +18,7 @@ export const DatePickerCalender = forwardRef(({ fieldName, label, ...props }: an
                         </StyledDateInput>
                     </StyledGroup>
                 </div>
-                <StyledButtonCalender ><img src="src/assets/calendar.svg" alt="" /></StyledButtonCalender>
+                <StyledButtonCalender ><img src={calender} alt="" /></StyledButtonCalender>
             </div>
             <Popover >
                 <Dialog>
