@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-background-image: url('../src/assets/Vector.svg');
+background-image: url('../public/avatar-pictures/Vector.svg');
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;

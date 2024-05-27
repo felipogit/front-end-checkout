@@ -115,7 +115,7 @@ export const FormCheckout = () => {
         </div>
         <div className="container">
           <div>
-            <Input type="text" label="Nome completo" placeholder="Origem"  {...register("name")} />
+            <Input type="text" label="Nome completo" placeholder="Origem"   {...register("name")} />
             <p className="error-message">{errors.name?.message}</p>
           </div>
           <div>
